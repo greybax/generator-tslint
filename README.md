@@ -6,9 +6,7 @@
 [![Dependency Status][depstat-image]][depstat-url]
 [![DevDependency Status][depstat-dev-image]][depstat-dev-url]
 
-> Yeoman generator to help with TSLint development
-
-> [Yeoman](http:\\yeoman.io) generator to get eslint up and running in your project with your favorite preset
+> [Yeoman](http:\\yeoman.io) generator to get [tslint](https://palantir.github.io/tslint/) up and running in your project with your favorite preset
 
 ## Install
 
@@ -28,7 +26,7 @@ yo tslint tslint-microsoft-contrib,tslint-eslint-rules
 
 ```
 
-For now supporting only 
+For now supporting only (in accordance with http://palantir.github.io/tslint/usage/custom-rules/)
 
 * [tslint-microsoft-contrib](https://github.com/Microsoft/tslint-microsoft-contrib)
 * [tslint-eslint-rules](https://github.com/buzinas/tslint-eslint-rules)

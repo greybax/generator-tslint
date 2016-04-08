@@ -47,6 +47,10 @@ module.exports = yeoman.Base.extend({
     writing: function () {
         let cli = {};
         let packages = [];
+        
+        /*
+        Up-to-date this dictionary in accordance with http://palantir.github.io/tslint/usage/custom-rules/
+         */
         var dictionary = {
             "tslint-microsoft-contrib": "node_modules/tslint-microsoft-contrib",
             "tslint-eslint-rules": "node_modules/tslint-eslint-rules/dist/rules",
