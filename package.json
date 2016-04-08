@@ -1,6 +1,6 @@
 {
   "name": "generator-tslint",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Yeoman generator to get tslint up and running in your project with your favorite preset (and with plugins if you want)",
   "main": "app/index.js",
   "scripts": {
