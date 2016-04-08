@@ -14,13 +14,6 @@ var stringify = function stringify(obj) {
 var parse = function() {
     JSON.parse.bind(JSON);
 };
-var truncateRulesDirectory = function truncateRulesDirectory(input) {
-    var obj = input;
-    if (obj.rulesDirectory && obj.rulesDirectory.length === 1) {
-        obj.rulesDirectory = obj.rulesDirectory[0];
-    }
-    return obj;
-};
 
 // concatAll :: [Array] -> Array
 var concatAll = R.reduce(R.concat, []);
@@ -48,9 +41,7 @@ module.exports = yeoman.Base.extend({
         var cli = {};
         var packages = [];
         
-        /*
-        Up-to-date this dictionary in accordance with http://palantir.github.io/tslint/usage/custom-rules/
-         */
+        // Up-to-date this dictionary in accordance with http://palantir.github.io/tslint/usage/custom-rules/
         var dictionary = {
             "tslint-microsoft-contrib": "node_modules/tslint-microsoft-contrib",
             "tslint-eslint-rules": "node_modules/tslint-eslint-rules/dist/rules",
