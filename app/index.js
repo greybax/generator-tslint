@@ -45,8 +45,8 @@ module.exports = yeoman.Base.extend({
         };
     },
     writing: function () {
-        let cli = {};
-        let packages = [];
+        var cli = {};
+        var packages = [];
         
         /*
         Up-to-date this dictionary in accordance with http://palantir.github.io/tslint/usage/custom-rules/
@@ -66,7 +66,7 @@ module.exports = yeoman.Base.extend({
             cli.rulesDirectory = cli.rulesDirectory.map((rule) => dictionary[rule]);
         }
 
-        let options = this.options.config || {};
+        var options = this.options.config || {};
         if (options.rulesDirectory) {
             options.rulesDirectory = (typeof options.rulesDirectory === 'string')
                 ? splitKeywords(options.rulesDirectory)
@@ -76,17 +76,17 @@ module.exports = yeoman.Base.extend({
             options.rulesDirectory = options.rulesDirectory.map((rule) => dictionary[rule]);
         }
 
-        let existing = this.fs.exists(this.destinationPath('tslint.json'))
+        var existing = this.fs.exists(this.destinationPath('tslint.json'))
             ? parse(this.fs.read(this.destinationPath('tslint.json')))
             : {};
             
-        let result = R.mergeAll([existing, cli, options]);
+        var result = R.mergeAll([existing, cli, options]);
         this.fs.write(
             this.destinationPath('tslint.json'),
             (stringify(result) + '\n')
         );
 
-        let deps = concatAll([
+        var deps = concatAll([
             ['tslint@latest', 'typescript@latest'],
             (packages || []).map(getPkgName)
         ]);
