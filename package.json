@@ -1,0 +1,62 @@
+{
+  "name": "generator-tslint",
+  "version": "0.0.1",
+  "description": "Yeoman generator to get tslint up and running in your project with your favorite preset (and with plugins if you want)",
+  "main": "app/index.js",
+  "scripts": {
+    "coverage": "istanbul cover _mocha",
+    "precoveralls": "npm run coverage",
+    "coveralls": "coveralls < coverage/lcov.info",
+    "test": "mocha",
+    "tdd": "npm test -- --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/greybax/generator-tslint/.git"
+  },
+  "keywords": [
+    "yeoman-generator",
+    "starter",
+    "kit",
+    "yeoman",
+    "plugin",
+    "boilerplate",
+    "template",
+    "scaffold",
+    "module",
+    "node_module",
+    "node-module",
+    "travis",
+    "javascript",
+    "npm",
+    "lint",
+    "code-lint",
+    "linting",
+    "code-linting",
+    "tslint"
+  ],
+  "author": {
+    "name": "Aleksandr Filatov",
+    "email": "greybax@gmail.com",
+    "url": "https://alfilatov.com"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/greybax/generator-tslint/issues"
+  },
+  "homepage": "https://github.com/greybax/generator-tslint#readme",
+  "devDependencies": {
+    "coveralls": "^2.11.6",
+    "istanbul": "^0.4.2",
+    "mocha": "^2.3.4",
+    "yeoman-assert": "^2.0.0",
+    "yeoman-test": "^1.0.0"
+  },
+  "dependencies": {
+    "deps-object": "^2.0.0",
+    "ramda": "^0.19.1",
+    "sorted-object": "^2.0.0",
+    "split-keywords": "^2.0.0",
+    "yeoman-generator": "^0.22.4"
+  }
+}
