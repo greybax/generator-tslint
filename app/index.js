@@ -64,7 +64,11 @@ module.exports = yeoman.Base.extend({
                 : options.rulesDirectory;
             packages = options.rulesDirectory;
             
-            options.rulesDirectory = options.rulesDirectory.map((rule) => dictionary[rule]);
+            options.rulesDirectory = options.rulesDirectory.map(
+                function(rule) {
+                    return dictionary[rule];
+                }
+            );
         }
 
         var existing = this.fs.exists(this.destinationPath('tslint.json'))
