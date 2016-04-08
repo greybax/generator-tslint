@@ -54,7 +54,11 @@ module.exports = yeoman.Base.extend({
                 : this.rulesDirectory;
             packages = cli.rulesDirectory;
             
-            cli.rulesDirectory = cli.rulesDirectory.map((rule) => dictionary[rule]);
+            cli.rulesDirectory = cli.rulesDirectory.map(
+                function(rule) {
+                    return dictionary[rule];
+                }
+            );
         }
 
         var options = this.options.config || {};
