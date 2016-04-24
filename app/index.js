@@ -24,8 +24,11 @@ module.exports = yeoman.Base.extend({
         this.argument('rulesDirectory', { type: Array, required: false,
             desc: 'rulesDirectory list: "yo tslint tslint-microsoft-contrib"'
         });
-        this.option('rulesDirectory', { type: String, required: false,
-            desc: 'Rules list: "yo tslint tslint-microsoft-contrib"'
+        this.option('rulesDirectory', { type: String, required: false, alias: "r",
+            desc: 'rulesDirectory list: "yo tslint -r tslint-microsoft-contrib"'
+        });
+        this.option('extends', { type: String, required: false, alias: "e",
+            desc: 'extends list: "yo tslint -e tslint-microsoft-contrib"'
         });
 
         this.saveDepsToPkg = function (deps) {
@@ -48,6 +51,7 @@ module.exports = yeoman.Base.extend({
             "codelyzer": "node_modules/codelyzer/dist/src"
         }
 
+        // arguments
         if (this.rulesDirectory) {
             cli.rulesDirectory = (typeof this.rulesDirectory === 'string')
                 ? splitKeywords(this.rulesDirectory)
@@ -61,24 +65,43 @@ module.exports = yeoman.Base.extend({
             );
         }
 
-        var options = this.options.config || {};
-        if (options.rulesDirectory) {
-            options.rulesDirectory = (typeof options.rulesDirectory === 'string')
-                ? splitKeywords(options.rulesDirectory)
-                : options.rulesDirectory;
-            packages = options.rulesDirectory;
-            
-            options.rulesDirectory = options.rulesDirectory.map(
+        // options
+        var rulesDirectory = this.options.rulesDirectory;
+        if (this.options.config && this.options.config.rulesDirectory) {
+            rulesDirectory = this.options.config.rulesDirectory
+        }
+        if (typeof rulesDirectory === "boolean") {
+            this.log('Maybe you forgot double dash: `-rulesDirectory` instead of `--rulesDirectory`');
+        }
+        if (rulesDirectory) {
+            cli.rulesDirectory = (typeof rulesDirectory === 'string')
+                ? splitKeywords(rulesDirectory)
+                : rulesDirectory;
+            packages = cli.rulesDirectory;
+            cli.rulesDirectory = cli.rulesDirectory.map(
                 function(rule) {
                     return dictionary[rule];
                 }
             );
         }
 
+        var ext = this.options.extends;
+        if (typeof ext === "boolean") {
+            this.log('Maybe you forgot double dash: `-extends` instead of `--extends`');
+        }
+        if (ext) {
+            cli.extends = (typeof ext === 'string')
+                ? splitKeywords(ext)
+                : ext;
+        }
+
         var existing = this.fs.exists(this.destinationPath('tslint.json'))
             ? parse(this.fs.read(this.destinationPath('tslint.json')))
             : {};
-            
+
+        var options = this.options.config && !this.options.config.rulesDirectory
+            ? this.options.config
+            : {};
         var result = R.mergeAll([existing, cli, options]);
         this.fs.write(
             this.destinationPath('tslint.json'),
