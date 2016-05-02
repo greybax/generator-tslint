@@ -57,6 +57,6 @@
     "ramda": "^0.21.0",
     "sorted-object": "^2.0.0",
     "split-keywords": "^2.0.1",
-    "yeoman-generator": "^0.22.6"
+    "yeoman-generator": "^0.23.0"
   }
 }
