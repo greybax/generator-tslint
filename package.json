@@ -46,7 +46,7 @@
   },
   "homepage": "https://github.com/greybax/generator-tslint#readme",
   "devDependencies": {
-    "coveralls": "^2.11.9",
+    "coveralls": "^2.11.12",
     "istanbul": "^0.4.3",
     "mocha": "^3.0.1",
     "yeoman-assert": "^2.2.1",
