@@ -62,7 +62,7 @@ this.composeWith('tslint', { options:  {
 
 ## License
 
-MIT © Aleksandr Filatov <greybax@gmail.com>
+MIT © Aleksandr Filatov [alfilatov.com](http://alfilatov.com)
 
 [npm-url]: https://npmjs.org/package/generator-tslint
 [npm-image]: https://img.shields.io/npm/v/generator-tslint.svg?style=flat-square
