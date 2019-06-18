@@ -1,12 +1,12 @@
 # generator-tslint
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/greybax/generator-tslint.svg)](https://greenkeeper.io/)
-
 [![NPM version][npm-image]][npm-url]
 [![Build Status][travis-image]][travis-url]
 [![Coveralls Status][coveralls-image]][coveralls-url]
 [![Dependency Status][depstat-image]][depstat-url]
 [![DevDependency Status][depstat-dev-image]][depstat-dev-url]
+
+[![Patreon](https://c5.patreon.com/external/logo/become_a_patron_button.png)](https://www.patreon.com/bePatron?u=14980891)
 
 > [Yeoman](http:\\yeoman.io) generator to get [tslint](https://palantir.github.io/tslint/) up and running in your project with your favorite preset
 
